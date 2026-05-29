@@ -3,6 +3,7 @@ import { Inter, Cairo } from 'next/font/google';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import Script from 'next/script';
 import { routing } from '@/i18n/routing';
 import '../globals.css';
 import Header from '@/components/layout/Header';
@@ -63,6 +64,14 @@ export default async function LocaleLayout({
       dir={isRTL ? 'rtl' : 'ltr'}
       className={`${inter.variable} ${cairo.variable}`}
     >
+      {process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID && (
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID}`}
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
+      )}
       <body className="min-h-screen flex flex-col bg-base antialiased">
         <NextIntlClientProvider messages={messages}>
           <Header />

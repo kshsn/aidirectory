@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { redirect } from 'next/navigation';
 import { revalidateTag } from 'next/cache';
@@ -88,9 +89,9 @@ export default async function NewToolPage() {
           <button type="submit" className="bg-primary hover:bg-primary-dark text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors">
             Create Tool
           </button>
-          <a href="/admin/tools" className="px-5 py-2.5 border border-border rounded-lg text-sm text-text-muted hover:border-primary hover:text-primary transition-colors">
+          <Link href="/admin/tools" className="px-5 py-2.5 border border-border rounded-lg text-sm text-text-muted hover:border-primary hover:text-primary transition-colors">
             Cancel
-          </a>
+          </Link>
         </div>
       </form>
     </div>

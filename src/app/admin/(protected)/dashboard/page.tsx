@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 
 async function getStats() {
@@ -37,10 +38,10 @@ export default async function AdminDashboard() {
         <div className="bg-surface border border-border rounded-xl p-5">
           <h2 className="font-semibold mb-3">Quick Actions</h2>
           <div className="space-y-2">
-            <a href="/admin/tools" className="block text-sm text-primary hover:underline">→ Manage Tools</a>
-            <a href="/admin/categories" className="block text-sm text-primary hover:underline">→ Manage Categories</a>
-            <a href="/admin/analytics" className="block text-sm text-primary hover:underline">→ View Analytics</a>
-            <a href="/en" target="_blank" className="block text-sm text-primary hover:underline">→ View Public Site</a>
+            <Link href="/admin/tools" className="block text-sm text-primary hover:underline">→ Manage Tools</Link>
+            <Link href="/admin/categories" className="block text-sm text-primary hover:underline">→ Manage Categories</Link>
+            <Link href="/admin/analytics" className="block text-sm text-primary hover:underline">→ View Analytics</Link>
+            <a href="/en" target="_blank" rel="noreferrer" className="block text-sm text-primary hover:underline">→ View Public Site</a>
           </div>
         </div>
         <div className="bg-surface border border-border rounded-xl p-5">

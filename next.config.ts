@@ -8,9 +8,6 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: '**' }
     ]
-  },
-  experimental: {
-    typedRoutes: true
   }
 };
 

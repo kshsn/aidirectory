@@ -57,14 +57,14 @@ export default async function middleware(request: NextRequest) {
 
   // Root path — detect locale from cookie or IP
   const cookieLocale = request.cookies.get('preferred-locale')?.value;
-  if (cookieLocale && SUPPORTED_LOCALES.includes(cookieLocale as typeof SUPPORTED_LOCALES[number])) {
+  if (cookieLocale && SUPPORTED_LOCALES.includes(cookieLocale as (typeof SUPPORTED_LOCALES)[number])) {
     return NextResponse.redirect(new URL(`/${cookieLocale}${pathname}`, request.url));
   }
 
   // Try IP geolocation
   const country = request.headers.get('x-country') || // CDN header (Cloudflare etc.)
                   request.headers.get('cf-ipcountry');  // Cloudflare specifically
-  let detectedLocale = DEFAULT_LOCALE;
+  let detectedLocale: string = DEFAULT_LOCALE;
 
   if (country && COUNTRY_TO_LOCALE[country.toUpperCase()]) {
     detectedLocale = COUNTRY_TO_LOCALE[country.toUpperCase()];
@@ -72,7 +72,7 @@ export default async function middleware(request: NextRequest) {
     // Fallback: Accept-Language header
     const acceptLanguage = request.headers.get('accept-language') || '';
     const primaryLang = acceptLanguage.split(',')[0]?.split('-')[0]?.toLowerCase();
-    if (primaryLang && SUPPORTED_LOCALES.includes(primaryLang as typeof SUPPORTED_LOCALES[number])) {
+    if (primaryLang && SUPPORTED_LOCALES.includes(primaryLang as (typeof SUPPORTED_LOCALES)[number])) {
       detectedLocale = primaryLang;
     }
   }

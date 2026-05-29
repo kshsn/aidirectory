@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "categories": "الفئات",
+    "search": "بحث",
+    "submitTool": "أضف أداة"
+  },
+  "hero": {
+    "headline": "اعثر على أفضل أداة ذكاء اصطناعي لأي مهمة",
+    "subheadline": "اكتشف أكثر من {count} أداة ذكاء اصطناعي في {categories} فئة",
+    "searchPlaceholder": "ابحث عن أدوات الذكاء الاصطناعي...",
+    "searchButton": "بحث"
+  },
+  "sections": {
+    "featured": "الأدوات المميزة",
+    "trending": "الأكثر رواجاً هذا الأسبوع",
+    "newest": "أحدث الأدوات",
+    "categories": "تصفح حسب الفئة",
+    "viewAll": "عرض الكل"
+  },
+  "tool": {
+    "visitTool": "زيارة الأداة",
+    "pricingFree": "مجاني",
+    "pricingFreemium": "مجاني جزئياً",
+    "pricingPaid": "مدفوع",
+    "pricingOpenSource": "مفتوح المصدر",
+    "relatedTools": "أدوات ذات صلة",
+    "tags": "الوسوم"
+  },
+  "filters": {
+    "allCategories": "جميع الفئات",
+    "allPricing": "جميع الأسعار",
+    "sortNewest": "الأحدث",
+    "sortPopular": "الأكثر شعبية",
+    "clearFilters": "مسح الفلاتر"
+  },
+  "search": {
+    "resultsFor": "نتائج البحث عن \"{query}\"",
+    "noResults": "لا توجد أدوات لـ \"{query}\"",
+    "noResultsHint": "جرب كلمة مختلفة أو تصفح الفئات"
+  },
+  "category": {
+    "tools": "{count} أداة",
+    "comingSoon": "المزيد من الأدوات قادم قريباً"
+  },
+  "footer": {
+    "tagline": "دليل أدوات الذكاء الاصطناعي العالمي",
+    "copyright": "© {year} aidirectory. جميع الحقوق محفوظة."
+  },
+  "meta": {
+    "homeTitle": "aidirectory — اعثر على أفضل أدوات الذكاء الاصطناعي",
+    "homeDescription": "اكتشف أكثر من {count} أداة ذكاء اصطناعي للكتابة والتصميم والبرمجة والفيديو والمزيد. يُحدَّث يومياً.",
+    "toolTitle": "{name} — أداة ذكاء اصطناعي | aidirectory",
+    "categoryTitle": "أدوات الذكاء الاصطناعي - {category} | aidirectory"
+  }
+}

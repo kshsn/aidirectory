@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "home": "Home",
+    "categories": "Categories",
+    "search": "Search",
+    "submitTool": "Submit Tool"
+  },
+  "hero": {
+    "headline": "Find the Perfect AI Tool for Any Task",
+    "subheadline": "Discover {count}+ AI tools across {categories} categories",
+    "searchPlaceholder": "Search AI tools...",
+    "searchButton": "Search"
+  },
+  "sections": {
+    "featured": "Featured Tools",
+    "trending": "Trending This Week",
+    "newest": "Newest Tools",
+    "categories": "Browse by Category",
+    "viewAll": "View All"
+  },
+  "tool": {
+    "visitTool": "Visit Tool",
+    "pricingFree": "Free",
+    "pricingFreemium": "Freemium",
+    "pricingPaid": "Paid",
+    "pricingOpenSource": "Open Source",
+    "relatedTools": "Related Tools",
+    "tags": "Tags"
+  },
+  "filters": {
+    "allCategories": "All Categories",
+    "allPricing": "All Pricing",
+    "sortNewest": "Newest",
+    "sortPopular": "Most Popular",
+    "clearFilters": "Clear Filters"
+  },
+  "search": {
+    "resultsFor": "Results for \"{query}\"",
+    "noResults": "No tools found for \"{query}\"",
+    "noResultsHint": "Try a different keyword or browse our categories"
+  },
+  "category": {
+    "tools": "{count} tools",
+    "comingSoon": "More tools coming soon"
+  },
+  "footer": {
+    "tagline": "The global AI tools directory",
+    "copyright": "© {year} aidirectory. All rights reserved."
+  },
+  "meta": {
+    "homeTitle": "aidirectory — Find the Best AI Tools",
+    "homeDescription": "Discover {count}+ AI tools for writing, design, code, video, and more. Updated daily.",
+    "toolTitle": "{name} — AI Tool | aidirectory",
+    "categoryTitle": "{category} AI Tools | aidirectory"
+  }
+}

@@ -1,0 +1,108 @@
+// aidirectory — Prisma Schema
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Enums ────────────────────────────────────────────────────────────────────
+enum PricingType {
+  FREE
+  FREEMIUM
+  PAID
+  OPEN_SOURCE
+}
+
+// ─── Categories ───────────────────────────────────────────────────────────────
+model Category {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  icon      String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tools        Tool[]
+  translations CategoryTranslation[]
+
+  @@map("categories")
+}
+
+model CategoryTranslation {
+  id          String   @id @default(cuid())
+  categoryId  String
+  locale      String   // en, ar, es, fr, pt, de, zh, hi, ja, ru
+  name        String
+  description String?
+  translatedAt DateTime @default(now())
+
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@unique([categoryId, locale])
+  @@map("category_translations")
+}
+
+// ─── Tools ────────────────────────────────────────────────────────────────────
+model Tool {
+  id           String      @id @default(cuid())
+  slug         String      @unique
+  name         String
+  websiteUrl   String
+  affiliateUrl String?
+  logoUrl      String?
+  pricingType  PricingType @default(FREEMIUM)
+  categoryId   String
+  tags         String[]
+  isFeatured   Boolean     @default(false)
+  isVerified   Boolean     @default(false)
+  isDeleted    Boolean     @default(false)
+  isPublished  Boolean     @default(true)
+  clickCount   Int         @default(0)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  category     Category           @relation(fields: [categoryId], references: [id])
+  translations ToolTranslation[]
+  clicks       AffiliateClick[]
+
+  @@index([categoryId])
+  @@index([pricingType])
+  @@index([isFeatured])
+  @@index([isPublished, isDeleted])
+  @@index([clickCount])
+  @@map("tools")
+}
+
+model ToolTranslation {
+  id               String   @id @default(cuid())
+  toolId           String
+  locale           String   // en, ar, es, fr, pt, de, zh, hi, ja, ru
+  description      String
+  shortDescription String?
+  translatedAt     DateTime @default(now())
+
+  tool Tool @relation(fields: [toolId], references: [id], onDelete: Cascade)
+
+  @@unique([toolId, locale])
+  @@map("tool_translations")
+}
+
+// ─── Affiliate Click Tracking ─────────────────────────────────────────────────
+model AffiliateClick {
+  id          String   @id @default(cuid())
+  toolId      String
+  locale      String
+  referrer    String?
+  userAgent   String?
+  hashedIp    String?
+  createdAt   DateTime @default(now())
+
+  tool Tool @relation(fields: [toolId], references: [id], onDelete: Cascade)
+
+  @@index([toolId, createdAt])
+  @@index([locale, createdAt])
+  @@map("affiliate_clicks")
+}
